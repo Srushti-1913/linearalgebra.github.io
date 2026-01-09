@@ -1,4 +1,4 @@
-import { FlaskConical, FileCode, Download, CheckCircle, Calendar, User } from "lucide-react";
+import { FlaskConical, FileCode, Download, CheckCircle, Calendar, User, FileText } from "lucide-react";
 import { Button } from "./ui/button";
 import {
   Accordion,
@@ -15,6 +15,7 @@ const labs = [
     date: "October 2025",
     student: "Srushti G Joshi",
     srn: "01FE24BAR014",
+    pdfUrl: "/labs/lab1-spring-mass.pdf",
     description: "Analyze a multi-spring system using stiffness matrix method and solve for nodal displacements.",
     problems: [
       {
@@ -51,6 +52,7 @@ print("Displacements:", x)`
     date: "October 2025",
     student: "Srushti G Joshi",
     srn: "01FE24BAR014",
+    pdfUrl: "/labs/lab2-truss-analysis.pdf",
     description: "Determine internal member forces in a triangular truss using static equilibrium equations and matrix methods.",
     problems: [
       {
@@ -85,6 +87,7 @@ print("Member Forces:", forces)`
     date: "November 2025",
     student: "Srushti G Joshi",
     srn: "01FE24BAR014",
+    pdfUrl: "/labs/lab3-gauss-lu.pdf",
     description: "Implement Gauss elimination with back substitution and LU decomposition for solving linear systems.",
     problems: [
       {
@@ -130,6 +133,7 @@ print("Solution:", x)`
     date: "December 2025",
     student: "Srushti G Joshi",
     srn: "01FE24BAR014",
+    pdfUrl: "/labs/lab4-robot-kinematics.pdf",
     description: "Compute end-effector positions and workspace analysis for 2R and 3R planar robotic manipulators using homogeneous transformations.",
     problems: [
       {
@@ -187,6 +191,7 @@ plt.show()`
     date: "January 2026",
     student: "Srushti G Joshi",
     srn: "01FE24BAR014",
+    pdfUrl: "/labs/lab5-static-equilibrium.pdf",
     description: "Comprehensive assessment on constructing stiffness matrices and solving for displacements in 4-mass spring systems.",
     problems: [
       {
@@ -266,7 +271,39 @@ const LabAssessments = () => {
                   </div>
                 </AccordionTrigger>
                 <AccordionContent className="px-6 pb-6">
-                  <p className="text-muted-foreground mb-6">{lab.description}</p>
+                  <div className="flex items-center justify-between mb-4">
+                    <p className="text-muted-foreground">{lab.description}</p>
+                    <a
+                      href={lab.pdfUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="shrink-0"
+                    >
+                      <Button variant="outline" size="sm" className="gap-2">
+                        <FileText className="h-4 w-4" />
+                        View PDF
+                      </Button>
+                    </a>
+                  </div>
+
+                  {/* PDF Download Banner */}
+                  <div className="p-4 rounded-lg bg-primary/5 border border-primary/20 mb-6 flex items-center justify-between">
+                    <div className="flex items-center gap-3">
+                      <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
+                        <FileText className="h-5 w-5 text-primary" />
+                      </div>
+                      <div>
+                        <p className="text-sm font-medium text-foreground">Lab Assessment Document</p>
+                        <p className="text-xs text-muted-foreground">Complete handwritten solutions & diagrams</p>
+                      </div>
+                    </div>
+                    <a href={lab.pdfUrl} download>
+                      <Button size="sm" className="gap-2">
+                        <Download className="h-4 w-4" />
+                        Download PDF
+                      </Button>
+                    </a>
+                  </div>
 
                   {/* Problems */}
                   <div className="space-y-4 mb-6">
@@ -299,10 +336,6 @@ const LabAssessments = () => {
                         <FileCode className="h-4 w-4" />
                         Python Implementation
                       </div>
-                      <Button variant="ghost" size="sm" className="gap-2">
-                        <Download className="h-3 w-3" />
-                        Download
-                      </Button>
                     </div>
                     <pre className="code-block overflow-x-auto text-xs">
                       <code>{lab.code}</code>
