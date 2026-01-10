@@ -92,6 +92,10 @@ const Footer = () => {
         </div>
 
         <div className="border-t border-primary-foreground/20 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+          <div className="text-sm text-primary-foreground/60">
+            <p className="font-medium text-primary-foreground/80">Srushti G Joshi</p>
+            <p>USN: 01FE24BAR014</p>
+          </div>
           <p className="text-sm text-primary-foreground/60">
             © 2025 KLE Technological University. Course Code: 25EMAB202
           </p>
