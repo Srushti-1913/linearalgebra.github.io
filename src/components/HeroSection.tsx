@@ -14,9 +14,22 @@ const HeroSection = () => {
       <div className="container">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-8">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-muted text-sm font-medium text-muted-foreground">
-              <span className="flex h-2 w-2 rounded-full bg-accent" />
-              Course Code: 25EMAB202
+            {/* Student Info Badge */}
+            <div className="inline-flex flex-col sm:flex-row items-start sm:items-center gap-3 px-5 py-3 rounded-xl bg-primary/10 border border-primary/20">
+              <div className="flex items-center gap-2">
+                <div className="h-10 w-10 rounded-full bg-primary/20 flex items-center justify-center">
+                  <span className="text-primary font-semibold text-lg">S</span>
+                </div>
+                <div>
+                  <p className="font-semibold text-foreground">Srushti G Joshi</p>
+                  <p className="text-xs text-muted-foreground">USN: 01FE24BAR014</p>
+                </div>
+              </div>
+              <div className="hidden sm:block h-8 w-px bg-border" />
+              <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                <span className="flex h-2 w-2 rounded-full bg-accent" />
+                Course Code: 25EMAB202
+              </div>
             </div>
 
             <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight">
